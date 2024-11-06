@@ -1,0 +1,15 @@
+.header {
+    height: 60px;
+    background-color: #1DA1F2;
+
+    .header-title {
+        font-size: 24px;
+        font-weight: 500;
+        color: white;
+        height: inherit;
+        display: flex;
+        align-items: center;
+        margin-left: 15px;
+    }
+}
+
