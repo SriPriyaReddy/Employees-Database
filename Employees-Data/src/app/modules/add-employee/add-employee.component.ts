@@ -44,13 +44,13 @@ export class AddEmployeeComponent implements OnInit {
     if(!this.isEdit) {
       this.dbService.add('employee', this.addEmployeeForm.value).subscribe(() => {
         console.log('Record added successfully.');
-        this.snackBar.open("Employee Added successfully")
+        this.snackBar.open("Employee Added successfully", "" , {duration: 3000})
       });
     }
     else {
       this.dbService.update('employee', {id: this.employeeData.id , ...this.addEmployeeForm.value}).subscribe(() => {
         console.log('Record updated successfully.');
-        this.snackBar.open("Employee updated successfully")
+        this.snackBar.open("Employee updated successfully", "" , {duration: 3000})
       });
     }
     
