@@ -1,0 +1,33 @@
+<app-header title="Add Employee Details"></app-header>
+<form class="add-employee" [formGroup]="addEmployeeForm">
+<mat-form-field class="form-field-input" >
+    <input type="email" matInput  placeholder="Employee name" formControlName="name">
+</mat-form-field>
+<mat-form-field class="form-field-input">
+    <mat-select type="email" matInput  placeholder="Select role" formControlName="role"> 
+        @for (role of rolesList; track role) {
+            <mat-option [value]="role">{{role}}</mat-option>
+          }
+    </mat-select>
+</mat-form-field>
+<div style="display: flex;column-gap: 70px">
+<mat-form-field style="width: 47%;">
+    <input matInput [matDatepicker]="fromPicker" placeholder="No date" formControlName="fromDate">
+    <mat-datepicker-toggle matIconSuffix [for]="fromPicker"></mat-datepicker-toggle>
+    <mat-datepicker #fromPicker></mat-datepicker>
+</mat-form-field>
+<mat-form-field style="width: 47%;">
+    <input matInput [matDatepicker]="toPicker" placeholder="No date" formControlName="toDate">
+    <mat-datepicker-toggle matIconSuffix [for]="toPicker"></mat-datepicker-toggle>
+    <mat-datepicker #toPicker></mat-datepicker>
+</mat-form-field>
+</div>
+</form>
+<div class="add-button">
+    <button mat-raised-button  aria-label="Add employee" (click)="navigateHome()">
+        Cancel
+    </button>
+    <button mat-flat-button aria-label="Add employee" (click)="saveEmployee()">
+        Save
+    </button>
+</div>

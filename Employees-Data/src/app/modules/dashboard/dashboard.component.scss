@@ -4,3 +4,20 @@
     align-items: center;
     height: calc(100vh - 60px);
 }
+
+.add-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    margin-right: 10px;
+}
+
+.employees-list{
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
