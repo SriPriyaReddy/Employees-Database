@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from '../dashboard/dashboard.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-employee',
@@ -20,7 +21,7 @@ export class AddEmployeeComponent implements OnInit {
   employeeData: Employee = {};
 
   constructor(private formbuilder: FormBuilder, private dbService: NgxIndexedDBService,
-    private router: Router, private route: ActivatedRoute
+    private router: Router, private route: ActivatedRoute, private snackBar: MatSnackBar
   ) {
     this.addEmployeeForm = this.formbuilder.group({
       name: new FormControl(),
@@ -43,13 +44,13 @@ export class AddEmployeeComponent implements OnInit {
     if(!this.isEdit) {
       this.dbService.add('employee', this.addEmployeeForm.value).subscribe(() => {
         console.log('Record added successfully.');
-  
+        this.snackBar.open("Employee Added successfully")
       });
     }
     else {
       this.dbService.update('employee', {id: this.employeeData.id , ...this.addEmployeeForm.value}).subscribe(() => {
         console.log('Record updated successfully.');
-  
+        this.snackBar.open("Employee updated successfully")
       });
     }
     
